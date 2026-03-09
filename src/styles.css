@@ -1,24 +1,52 @@
 body {
     font-family: 'Poppins', sans-serif;
     margin: 0;
+    scroll-behavior: smooth;
 }
 
 section {
     background-color: white;
 }
 
+.sub-section {
+    background: linear-gradient(180deg, #ffffff 0%, #f8f9fa 100%);
+}
+
+.sub-section-alternative {
+    background: linear-gradient(180deg, #f8f9fa 0%, #ffffff 100%);
+}
+
 .hero {
-    background-color: #1c1d25;
+    background: linear-gradient(135deg, #1c1d25 0%, #2b2c38 50%, #1c1d25 100%);
     height: 100vh;
     color: white;
     font-size: 40px;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 20% 50%, rgba(255, 126, 95, 0.1) 0%, transparent 50%);
+    pointer-events: none;
 }
 
 footer {
-    background-color: black;
+    background: linear-gradient(135deg, #1c1d25 0%, #0a0b10 100%);
     color: white;
     text-align: center;
     padding: 80px;
+}
+
+footer h2 {
+    color: white;
+    background: none;
+    -webkit-text-fill-color: white;
 }
 
 nav {
@@ -45,12 +73,26 @@ h1 {
 
 h2 {
     font-size: 50px;
+    margin-bottom: 30px;
+    background: linear-gradient(135deg, #1c1d25 0%, #2b2c38 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 p {
     margin: 0;
     font-size: 30px;
     font-weight: 300;
+    line-height: 1.6;
+}
+
+.information p {
+    font-size: 18px;
+    line-height: 1.8;
+    color: #444;
+    margin-bottom: 20px;
+    max-width: 700px;
 }
 
 .subtext {
@@ -63,6 +105,8 @@ p {
     height: 100%;
     justify-content: space-between;
     align-items: center;
+    position: relative;
+    z-index: 1;
 }
 
 .hero-text {
@@ -80,15 +124,20 @@ p {
     font-weight: 300;
     padding-top: 5px;
     margin-top: 20px;
+    transition: all 0.3s ease;
+    cursor: pointer;
 }
 
 .button:hover {
     background-color: #ef744b;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(239, 116, 75, 0.3);
 }
 
 .button:active {
     background-color: #A9A9A9;
     color: #808080;
+    transform: translateY(-1px);
 }
 
 .socials {
@@ -101,6 +150,12 @@ p {
 }
 .social {
     margin: 20px;
+    transition: transform 0.3s ease;
+    display: inline-block;
+}
+
+.social:hover {
+    transform: translateY(-5px) scale(1.1);
 }
 
 .sub-section {
@@ -120,6 +175,13 @@ p {
     width: 300px;
     border-radius: 150px;
     margin-left: 80px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.headshot:hover {
+    transform: scale(1.05);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
 }
 
 .headshot-container {
@@ -165,6 +227,146 @@ hr {
 a {
     text-decoration: none;
     color: white;
+    transition: all 0.3s ease;
+}
+
+nav a:hover {
+    color: coral;
+    transform: translateY(-2px);
+}
+
+/* Interests Section */
+.interests-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto 60px;
+    padding: 20px;
+}
+
+.interest-card {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.interest-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.interest-card h3 {
+    font-size: 22px;
+    margin-bottom: 20px;
+    color: #1c1d25;
+    font-weight: 600;
+    border-bottom: 3px solid coral;
+    padding-bottom: 10px;
+}
+
+.interest-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.interest-list li {
+    margin-bottom: 15px;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #555;
+}
+
+.interest-list li a {
+    color: #ef744b;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.interest-list li a:hover {
+    color: #ff5722;
+    text-decoration: underline;
+}
+
+.interests-description {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px 30px;
+    background: linear-gradient(135deg, #fff5f0 0%, #ffffff 100%);
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+}
+
+.interests-description h3 {
+    font-size: 28px;
+    margin-bottom: 25px;
+    color: #1c1d25;
+    font-weight: 600;
+    text-align: center;
+}
+
+.interests-description p {
+    font-size: 17px;
+    line-height: 1.8;
+    color: #444;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+/* Skills Section */
+.skills-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+.skill-category {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.skill-category:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.skill-category h3 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #1c1d25;
+    font-weight: 600;
+}
+
+.skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.skill-tag {
+    background: linear-gradient(135deg, #ff7e5f 0%, #feb47b 100%);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    cursor: default;
+}
+
+.skill-tag:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(255, 126, 95, 0.4);
 }
 
 .hamburger {
